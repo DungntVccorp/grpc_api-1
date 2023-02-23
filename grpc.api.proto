@@ -1,0 +1,20 @@
+// GO PATH => export PATH="$PATH:$(go env GOPATH)/bin"
+// GO GEN  =>  protoc -I=proto/ --go_out=. proto/*.proto 
+// GRPC GEN => protoc -I=. --go-grpc_out=. grpc.api.proto 
+// SWIFT GEN  => protoc --swift_out=. *.proto
+// SWIFT GEN GRPC => protoc --swift_out=. --plugin=/opt/homebrew/bin/protoc-gen-grpc-swift --grpc-swift_out=. grpc.api.proto 
+
+syntax = "proto3";
+import "api.proto";
+option go_package = "api/";
+
+
+
+package VIVAS;
+
+
+service API {
+  rpc SendRequest (Request) returns (Reply) {}
+}
+
+

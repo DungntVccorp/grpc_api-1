@@ -1,0 +1,91 @@
+syntax = "proto3";
+import "google/protobuf/any.proto";
+option go_package = "api/";
+
+
+
+enum ResultType
+{
+  OK = 0;
+  REQUEST_INVALID = 1000;
+  SESSION_INVALID = 1001;
+  SESSION_EXPIRE = 1002;
+  SIZE_LIMITED = 1003;
+  DB_ERROR = 1004;
+  NO_CHANGED = 1005;
+  NETWORK_ERROR = 1006;
+  DATA_ERROR = 1007;
+  ENCRYPT_ERROR = 1008; /// lỗi khi chưa thiết lập kết nối authen 
+  INTERNAL_SERVER_ERROR = 1009;
+  STRANGE_REQUEST = 1010;
+
+}
+
+
+
+enum EncodeType
+{
+    NONE = 0;  // không mã hóa playload 
+    XOR  = 32; // mã hóa với xor key ( sv sử dụng xor key của client và client sử dụng xor key của server để decode payload )
+    RSA  = 64; // mã hóa với rsa public key của nhau để encode data 
+    AES  = 96; // with key = 32 byte (AES-256-CBC) 
+}
+enum Platform
+{
+    IOS     = 0;
+    ANDROID = 1;
+    WEB     = 2;
+    WINDOW  = 3;
+    MAC     = 4;
+    LINUX   = 5;
+    OTHER   = 99;
+}
+enum Group
+{
+    UNUSE = 0;
+    CONNECTION = 1; // ==> connect.api.proto
+    AUTHEN = 2; // ==> authen.api.proto
+    ECHO = 3; // ==> echo.api.proto
+    MARKET = 4; // ==> market.api.proto
+    PNS = 5; // apns.api.proto // send push notification ios,android,window,web 
+}
+
+enum Role {
+    ADMIN = 0; 
+    PROVIDER = 1; 
+    USER = 2;
+}
+message Session
+{
+    string user_id = 1;
+    string session_id = 2;
+    uint64 expire = 3;
+    uint64 last_active = 4;
+    uint32 role = 5;
+}
+
+
+message Request {
+  uint32 type = 1;
+  Group group = 2;
+  Session session = 3;
+  bool reply_as_json = 4;
+  bool request_as_json = 5;
+  bytes bin_request = 6;
+  google.protobuf.Any request = 7;
+
+}
+message Reply {
+  uint32 status = 1;
+  string msg = 2;
+  google.protobuf.Any reply = 3;
+  bytes reply_json = 4;
+}
+message Receive{
+  uint32 type = 1;
+  uint64 server_time = 2;
+  google.protobuf.Any receive = 3;
+}
+
+
+
