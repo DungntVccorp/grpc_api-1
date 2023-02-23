@@ -69,8 +69,8 @@ message Request {
   uint32 type = 1;
   Group group = 2;
   Session session = 3;
-  bool reply_as_json = 4;
-  bool request_as_json = 5;
+  uint32 protocol = 4;
+  uint32 payloadType = 5;
   bytes bin_request = 6;
   google.protobuf.Any request = 7;
 
