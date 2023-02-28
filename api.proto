@@ -68,10 +68,10 @@ message Session
 message Request {
   uint32 type = 1;
   Group group = 2;
-  Session session = 3;
-  uint32 protocol = 4;
-  uint32 payloadType = 5;
-  bytes bin_request = 6;
+  Session session = 3; // client not set 
+  uint32 protocol = 4; // client not set 
+  uint32 payloadType = 5; // client not set 
+  bytes bin_request = 6; // client not set 
   google.protobuf.Any request = 7;
 
 }
@@ -79,6 +79,7 @@ message Reply {
   uint32 status = 1;
   string msg = 2;
   google.protobuf.Any reply = 3;
+  bytes bin_reply = 4;
 
 }
 message Receive{
