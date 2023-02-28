@@ -79,7 +79,7 @@ message Reply {
   uint32 status = 1;
   string msg = 2;
   google.protobuf.Any reply = 3;
-  bytes bin_reply = 4;
+
 }
 message Receive{
   uint32 type = 1;
