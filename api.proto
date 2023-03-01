@@ -89,4 +89,11 @@ message Receive{
 }
 
 
-
+message DiscoveryService{
+    message Request{}
+    message Reply
+    {
+        repeated uint32 types = 1;
+    }
+    uint32 ID = 1;
+}
