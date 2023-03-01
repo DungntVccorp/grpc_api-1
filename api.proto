@@ -68,10 +68,10 @@ message Session
 message Request {
   uint32 type = 1;
   Group group = 2;
-  Session session = 3; // client not set 
-  uint32 protocol = 4; // client not set 
-  uint32 payloadType = 5; // client not set 
-  bytes bin_request = 6; // client not set 
+  Session session = 3; // client không set khi sử dụng http tcp ws (http sử dụng V-Authorization ở Header mỗi request), đối với grpc và udp cần gửi thêm session_id để sv kiểm tra tính xác thực user 
+  uint32 protocol = 4; // client không set 
+  uint32 payloadType = 5; // client không set 
+  bytes bin_request = 6; // client không set 
   google.protobuf.Any request = 7;
 
 }
@@ -79,7 +79,7 @@ message Reply {
   uint32 status = 1;
   string msg = 2;
   google.protobuf.Any reply = 3;
-  bytes bin_reply = 4;
+  bytes bin_reply = 4; // trường này luôn luôn null khi được trả về client 
 
 }
 message Receive{
