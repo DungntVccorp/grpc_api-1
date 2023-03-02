@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+import "api.proto";
+
+option go_package = "api/";
+
+// dải ID từ 100 đến 105 // public cho client 
+
+message HelloReceive { // được server gửi về client ngay sau khi client mở kết nối ( WS hoặc TCP )
+    uint64 server_time = 1;
+    EncodeType server_encodeType = 2;
+    bytes pKey = 3;
+    uint32 RECEIVE_HELLO_ID = 100;
+}
+message Hello 
+{
+    message Request
+    {
+        EncodeType encodeType = 1; // loại mã hóa mà client sử dụng 
+        bytes pKey = 2; // public key của client , có thể là rsa public key hoặc xor key 
+        Platform platform = 3;
+    }
+    message Reply
+    {
+        bytes connection_id = 1;
+    }
+    enum ERROR
+    {
+        NO_ERROR = 0;
+        PKEY_INVALID = 1;
+        ENCODE_TYPE_INVALID = 2;
+    }
+    uint32 ID = 101;
+}
+message KeepAlive // sử dụng khi mở kết nối bằng tcp/ws hoặc udp  
+{
+    message Request
+    {
+        bytes connection_id = 1;
+    }
+    message Reply
+    {
+
+    }
+    enum ERROR
+    {
+         NO_ERROR = 0;
+         CONNECTION_ID_INVALID = 1;
+    }
+    uint32 ID = 102;
+}
+
