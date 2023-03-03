@@ -8,7 +8,7 @@ option go_package = "api/";
 
 enum TYPE_ID
 {
-    NONE  = 100;
+    _NONE  = 0;
     RECEIVE_HELLO = 1;
     REQUEST_HELLO = 2;
     REQUEST_KEEPALIVE  = 3;
