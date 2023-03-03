@@ -6,11 +6,18 @@ option go_package = "api/";
 
 // dải ID từ 100 đến 105 // public cho client 
 
+enum TYPE_ID
+{
+    NONE  = 100;
+    RECEIVE_HELLO = 1;
+    REQUEST_HELLO = 2;
+    REQUEST_KEEPALIVE  = 3;
+}
+
 message HelloReceive { // được server gửi về client ngay sau khi client mở kết nối ( WS hoặc TCP )
     uint64 server_time = 1;
     EncodeType server_encodeType = 2;
     bytes pKey = 3;
-    uint32 RECEIVE_HELLO_ID = 100;
 }
 message Hello 
 {
@@ -30,7 +37,6 @@ message Hello
         PKEY_INVALID = 1;
         ENCODE_TYPE_INVALID = 2;
     }
-    uint32 ID = 101;
 }
 message KeepAlive // sử dụng khi mở kết nối bằng tcp/ws hoặc udp  
 {
@@ -47,6 +53,5 @@ message KeepAlive // sử dụng khi mở kết nối bằng tcp/ws hoặc udp
          NO_ERROR = 0;
          CONNECTION_ID_INVALID = 1;
     }
-    uint32 ID = 102;
 }
 
