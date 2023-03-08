@@ -2,8 +2,21 @@ syntax = "proto3";
 
 option go_package = "api/";
 
-/// API dải 4xx 
 
+enum MARKET_TYPE_ID
+{
+    MARKET_NONE  = 0;
+    REQUEST_PING_API = 1;
+    REQUEST_LIST_API = 2;
+    REQUEST_CREATE_API = 3;
+    REQUEST_UPDATE_API  = 4;
+    REQUEST_DELETE_API = 5;
+    REQUEST_LIST_KEY = 6;
+    REQUEST_CREATE_KEY = 7;
+    REQUEST_UPDATE_KEY = 8;
+    REQUEST_DELETE_KEY = 9;
+
+}
 message api
 {
     string name = 1; // Human readable name of the API. It is used for identification purposes but does not act as an index.
@@ -42,7 +55,6 @@ message MarketPing
         string ver = 1;
         string server_time = 2;
     }
-    uint32 ID = 400;
 }
 
 message GetListAPI // lấy về danh sách api đã được khai trên hệ thống
@@ -62,7 +74,6 @@ message GetListAPI // lấy về danh sách api đã được khai trên hệ th
     {
          NO_ERROR = 0;
     }
-    uint32 ID = 401;
 }
 message CreateAPI
 {
@@ -74,7 +85,6 @@ message CreateAPI
     {
         api api = 1;
     }
-    uint32 ID = 402;
     enum ERROR
     {
          NO_ERROR = 0;
@@ -99,7 +109,6 @@ message UpdateAPI
     {
         api api = 1;
     }
-    uint32 ID = 403;
 }
 message DeleteAPI
 {
@@ -111,7 +120,6 @@ message DeleteAPI
     {
 
     }
-    uint32 ID = 404;
 
     enum ERROR
     {
@@ -137,7 +145,6 @@ message GetListKey
         repeated tokenkey keys = 1;
         uint32 total_page = 2;
     }
-    uint32 ID = 405;
 }
 message CreateKey
 {
@@ -149,7 +156,6 @@ message CreateKey
     {
        tokenkey keys = 1; 
     }
-    uint32 ID = 406;
 }
 message UpdateKey
 {
@@ -161,7 +167,6 @@ message UpdateKey
     {
        tokenkey keys = 1; 
     }
-    uint32 ID = 407;
 }
 
 message DeleteKey
@@ -174,6 +179,5 @@ message DeleteKey
     {
 
     }
-    uint32 ID = 408;
 }
 
