@@ -30,6 +30,9 @@ message Hello
     message Reply
     {
         bytes connection_id = 1;
+        uint64 server_time = 2;
+        EncodeType server_encodeType = 3;
+        bytes pKey = 4;
     }
     enum ERROR
     {
