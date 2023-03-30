@@ -10,7 +10,8 @@ enum ECHO_TYPE_ID
 }
 
 message AppMessage {
-
+    string msg = 1;
+    string user_send = 2;
 }
 
 message SendMessage
