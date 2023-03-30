@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option go_package = "api/";
+
+enum ECHO_TYPE_ID
+{
+    _UN_USE  = 0;
+    SEND_MESSAGE = 1;
+    RECEIVE_MESSAGE = 2;
+}
+
+message AppMessage {
+
+}
+
+message SendMessage
+{
+    message Request
+    {
+        AppMessage msg = 1;
+    }
+    message Reply
+    {
+        AppMessage msg = 2;
+    }
+    enum ERROR
+    {
+        NO_ERROR = 0;
+        MSG_INVALID = 1;
+    }
+}
+message ReceiveMessage
+{
+    AppMessage msg = 1;
+}
