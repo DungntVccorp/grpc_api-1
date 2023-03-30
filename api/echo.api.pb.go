@@ -24,21 +24,24 @@ type ECHO_TYPE_ID int32
 
 const (
 	ECHO_TYPE_ID__UN_USE         ECHO_TYPE_ID = 0
-	ECHO_TYPE_ID_SEND_MESSAGE    ECHO_TYPE_ID = 1
-	ECHO_TYPE_ID_RECEIVE_MESSAGE ECHO_TYPE_ID = 2
+	ECHO_TYPE_ID_PING            ECHO_TYPE_ID = 1
+	ECHO_TYPE_ID_SEND_MESSAGE    ECHO_TYPE_ID = 2
+	ECHO_TYPE_ID_RECEIVE_MESSAGE ECHO_TYPE_ID = 3
 )
 
 // Enum value maps for ECHO_TYPE_ID.
 var (
 	ECHO_TYPE_ID_name = map[int32]string{
 		0: "_UN_USE",
-		1: "SEND_MESSAGE",
-		2: "RECEIVE_MESSAGE",
+		1: "PING",
+		2: "SEND_MESSAGE",
+		3: "RECEIVE_MESSAGE",
 	}
 	ECHO_TYPE_ID_value = map[string]int32{
 		"_UN_USE":         0,
-		"SEND_MESSAGE":    1,
-		"RECEIVE_MESSAGE": 2,
+		"PING":            1,
+		"SEND_MESSAGE":    2,
+		"RECEIVE_MESSAGE": 3,
 	}
 )
 
@@ -112,7 +115,45 @@ func (x SendMessage_ERROR) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use SendMessage_ERROR.Descriptor instead.
 func (SendMessage_ERROR) EnumDescriptor() ([]byte, []int) {
-	return file_echo_api_proto_rawDescGZIP(), []int{1, 0}
+	return file_echo_api_proto_rawDescGZIP(), []int{2, 0}
+}
+
+type EchoPing struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *EchoPing) Reset() {
+	*x = EchoPing{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_echo_api_proto_msgTypes[0]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *EchoPing) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EchoPing) ProtoMessage() {}
+
+func (x *EchoPing) ProtoReflect() protoreflect.Message {
+	mi := &file_echo_api_proto_msgTypes[0]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EchoPing.ProtoReflect.Descriptor instead.
+func (*EchoPing) Descriptor() ([]byte, []int) {
+	return file_echo_api_proto_rawDescGZIP(), []int{0}
 }
 
 type AppMessage struct {
@@ -127,7 +168,7 @@ type AppMessage struct {
 func (x *AppMessage) Reset() {
 	*x = AppMessage{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_echo_api_proto_msgTypes[0]
+		mi := &file_echo_api_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -140,7 +181,7 @@ func (x *AppMessage) String() string {
 func (*AppMessage) ProtoMessage() {}
 
 func (x *AppMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_echo_api_proto_msgTypes[0]
+	mi := &file_echo_api_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -153,7 +194,7 @@ func (x *AppMessage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AppMessage.ProtoReflect.Descriptor instead.
 func (*AppMessage) Descriptor() ([]byte, []int) {
-	return file_echo_api_proto_rawDescGZIP(), []int{0}
+	return file_echo_api_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *AppMessage) GetMsg() string {
@@ -179,7 +220,7 @@ type SendMessage struct {
 func (x *SendMessage) Reset() {
 	*x = SendMessage{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_echo_api_proto_msgTypes[1]
+		mi := &file_echo_api_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -192,7 +233,7 @@ func (x *SendMessage) String() string {
 func (*SendMessage) ProtoMessage() {}
 
 func (x *SendMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_echo_api_proto_msgTypes[1]
+	mi := &file_echo_api_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -205,7 +246,7 @@ func (x *SendMessage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendMessage.ProtoReflect.Descriptor instead.
 func (*SendMessage) Descriptor() ([]byte, []int) {
-	return file_echo_api_proto_rawDescGZIP(), []int{1}
+	return file_echo_api_proto_rawDescGZIP(), []int{2}
 }
 
 type ReceiveMessage struct {
@@ -219,7 +260,7 @@ type ReceiveMessage struct {
 func (x *ReceiveMessage) Reset() {
 	*x = ReceiveMessage{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_echo_api_proto_msgTypes[2]
+		mi := &file_echo_api_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -232,7 +273,7 @@ func (x *ReceiveMessage) String() string {
 func (*ReceiveMessage) ProtoMessage() {}
 
 func (x *ReceiveMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_echo_api_proto_msgTypes[2]
+	mi := &file_echo_api_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -245,7 +286,7 @@ func (x *ReceiveMessage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReceiveMessage.ProtoReflect.Descriptor instead.
 func (*ReceiveMessage) Descriptor() ([]byte, []int) {
-	return file_echo_api_proto_rawDescGZIP(), []int{2}
+	return file_echo_api_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *ReceiveMessage) GetMsg() *AppMessage {
@@ -253,6 +294,99 @@ func (x *ReceiveMessage) GetMsg() *AppMessage {
 		return x.Msg
 	}
 	return nil
+}
+
+type EchoPing_Request struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *EchoPing_Request) Reset() {
+	*x = EchoPing_Request{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_echo_api_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *EchoPing_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EchoPing_Request) ProtoMessage() {}
+
+func (x *EchoPing_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_echo_api_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EchoPing_Request.ProtoReflect.Descriptor instead.
+func (*EchoPing_Request) Descriptor() ([]byte, []int) {
+	return file_echo_api_proto_rawDescGZIP(), []int{0, 0}
+}
+
+type EchoPing_Reply struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Ver        string `protobuf:"bytes,1,opt,name=ver,proto3" json:"ver,omitempty"`
+	ServerTime string `protobuf:"bytes,2,opt,name=server_time,json=serverTime,proto3" json:"server_time,omitempty"`
+}
+
+func (x *EchoPing_Reply) Reset() {
+	*x = EchoPing_Reply{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_echo_api_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *EchoPing_Reply) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EchoPing_Reply) ProtoMessage() {}
+
+func (x *EchoPing_Reply) ProtoReflect() protoreflect.Message {
+	mi := &file_echo_api_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EchoPing_Reply.ProtoReflect.Descriptor instead.
+func (*EchoPing_Reply) Descriptor() ([]byte, []int) {
+	return file_echo_api_proto_rawDescGZIP(), []int{0, 1}
+}
+
+func (x *EchoPing_Reply) GetVer() string {
+	if x != nil {
+		return x.Ver
+	}
+	return ""
+}
+
+func (x *EchoPing_Reply) GetServerTime() string {
+	if x != nil {
+		return x.ServerTime
+	}
+	return ""
 }
 
 type SendMessage_Request struct {
@@ -266,7 +400,7 @@ type SendMessage_Request struct {
 func (x *SendMessage_Request) Reset() {
 	*x = SendMessage_Request{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_echo_api_proto_msgTypes[3]
+		mi := &file_echo_api_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -279,7 +413,7 @@ func (x *SendMessage_Request) String() string {
 func (*SendMessage_Request) ProtoMessage() {}
 
 func (x *SendMessage_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_echo_api_proto_msgTypes[3]
+	mi := &file_echo_api_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -292,7 +426,7 @@ func (x *SendMessage_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendMessage_Request.ProtoReflect.Descriptor instead.
 func (*SendMessage_Request) Descriptor() ([]byte, []int) {
-	return file_echo_api_proto_rawDescGZIP(), []int{1, 0}
+	return file_echo_api_proto_rawDescGZIP(), []int{2, 0}
 }
 
 func (x *SendMessage_Request) GetMsg() *AppMessage {
@@ -313,7 +447,7 @@ type SendMessage_Reply struct {
 func (x *SendMessage_Reply) Reset() {
 	*x = SendMessage_Reply{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_echo_api_proto_msgTypes[4]
+		mi := &file_echo_api_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -326,7 +460,7 @@ func (x *SendMessage_Reply) String() string {
 func (*SendMessage_Reply) ProtoMessage() {}
 
 func (x *SendMessage_Reply) ProtoReflect() protoreflect.Message {
-	mi := &file_echo_api_proto_msgTypes[4]
+	mi := &file_echo_api_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -339,7 +473,7 @@ func (x *SendMessage_Reply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendMessage_Reply.ProtoReflect.Descriptor instead.
 func (*SendMessage_Reply) Descriptor() ([]byte, []int) {
-	return file_echo_api_proto_rawDescGZIP(), []int{1, 1}
+	return file_echo_api_proto_rawDescGZIP(), []int{2, 1}
 }
 
 func (x *SendMessage_Reply) GetMsg() *AppMessage {
@@ -353,27 +487,33 @@ var File_echo_api_proto protoreflect.FileDescriptor
 
 var file_echo_api_proto_rawDesc = []byte{
 	0x0a, 0x0e, 0x65, 0x63, 0x68, 0x6f, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x22, 0x3b, 0x0a, 0x0a, 0x41, 0x70, 0x70, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x10,
-	0x0a, 0x03, 0x6d, 0x73, 0x67, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6d, 0x73, 0x67,
-	0x12, 0x1b, 0x0a, 0x09, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x73, 0x65, 0x6e, 0x64, 0x18, 0x02, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x08, 0x75, 0x73, 0x65, 0x72, 0x53, 0x65, 0x6e, 0x64, 0x22, 0x87, 0x01,
-	0x0a, 0x0b, 0x53, 0x65, 0x6e, 0x64, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x1a, 0x28, 0x0a,
-	0x07, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1d, 0x0a, 0x03, 0x6d, 0x73, 0x67, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0b, 0x2e, 0x41, 0x70, 0x70, 0x4d, 0x65, 0x73, 0x73, 0x61,
-	0x67, 0x65, 0x52, 0x03, 0x6d, 0x73, 0x67, 0x1a, 0x26, 0x0a, 0x05, 0x52, 0x65, 0x70, 0x6c, 0x79,
-	0x12, 0x1d, 0x0a, 0x03, 0x6d, 0x73, 0x67, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0b, 0x2e,
-	0x41, 0x70, 0x70, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x52, 0x03, 0x6d, 0x73, 0x67, 0x22,
-	0x26, 0x0a, 0x05, 0x45, 0x52, 0x52, 0x4f, 0x52, 0x12, 0x0c, 0x0a, 0x08, 0x4e, 0x4f, 0x5f, 0x45,
-	0x52, 0x52, 0x4f, 0x52, 0x10, 0x00, 0x12, 0x0f, 0x0a, 0x0b, 0x4d, 0x53, 0x47, 0x5f, 0x49, 0x4e,
-	0x56, 0x41, 0x4c, 0x49, 0x44, 0x10, 0x01, 0x22, 0x2f, 0x0a, 0x0e, 0x52, 0x65, 0x63, 0x65, 0x69,
-	0x76, 0x65, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x1d, 0x0a, 0x03, 0x6d, 0x73, 0x67,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0b, 0x2e, 0x41, 0x70, 0x70, 0x4d, 0x65, 0x73, 0x73,
-	0x61, 0x67, 0x65, 0x52, 0x03, 0x6d, 0x73, 0x67, 0x2a, 0x42, 0x0a, 0x0c, 0x45, 0x43, 0x48, 0x4f,
-	0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x49, 0x44, 0x12, 0x0b, 0x0a, 0x07, 0x5f, 0x55, 0x4e, 0x5f,
-	0x55, 0x53, 0x45, 0x10, 0x00, 0x12, 0x10, 0x0a, 0x0c, 0x53, 0x45, 0x4e, 0x44, 0x5f, 0x4d, 0x45,
-	0x53, 0x53, 0x41, 0x47, 0x45, 0x10, 0x01, 0x12, 0x13, 0x0a, 0x0f, 0x52, 0x45, 0x43, 0x45, 0x49,
-	0x56, 0x45, 0x5f, 0x4d, 0x45, 0x53, 0x53, 0x41, 0x47, 0x45, 0x10, 0x02, 0x42, 0x06, 0x5a, 0x04,
-	0x61, 0x70, 0x69, 0x2f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x22, 0x51, 0x0a, 0x08, 0x45, 0x63, 0x68, 0x6f, 0x50, 0x69, 0x6e, 0x67, 0x1a, 0x09, 0x0a, 0x07,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x3a, 0x0a, 0x05, 0x52, 0x65, 0x70, 0x6c, 0x79,
+	0x12, 0x10, 0x0a, 0x03, 0x76, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x76,
+	0x65, 0x72, 0x12, 0x1f, 0x0a, 0x0b, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x5f, 0x74, 0x69, 0x6d,
+	0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x54,
+	0x69, 0x6d, 0x65, 0x22, 0x3b, 0x0a, 0x0a, 0x41, 0x70, 0x70, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67,
+	0x65, 0x12, 0x10, 0x0a, 0x03, 0x6d, 0x73, 0x67, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03,
+	0x6d, 0x73, 0x67, 0x12, 0x1b, 0x0a, 0x09, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x73, 0x65, 0x6e, 0x64,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x75, 0x73, 0x65, 0x72, 0x53, 0x65, 0x6e, 0x64,
+	0x22, 0x87, 0x01, 0x0a, 0x0b, 0x53, 0x65, 0x6e, 0x64, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65,
+	0x1a, 0x28, 0x0a, 0x07, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1d, 0x0a, 0x03, 0x6d,
+	0x73, 0x67, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0b, 0x2e, 0x41, 0x70, 0x70, 0x4d, 0x65,
+	0x73, 0x73, 0x61, 0x67, 0x65, 0x52, 0x03, 0x6d, 0x73, 0x67, 0x1a, 0x26, 0x0a, 0x05, 0x52, 0x65,
+	0x70, 0x6c, 0x79, 0x12, 0x1d, 0x0a, 0x03, 0x6d, 0x73, 0x67, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x0b, 0x2e, 0x41, 0x70, 0x70, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x52, 0x03, 0x6d,
+	0x73, 0x67, 0x22, 0x26, 0x0a, 0x05, 0x45, 0x52, 0x52, 0x4f, 0x52, 0x12, 0x0c, 0x0a, 0x08, 0x4e,
+	0x4f, 0x5f, 0x45, 0x52, 0x52, 0x4f, 0x52, 0x10, 0x00, 0x12, 0x0f, 0x0a, 0x0b, 0x4d, 0x53, 0x47,
+	0x5f, 0x49, 0x4e, 0x56, 0x41, 0x4c, 0x49, 0x44, 0x10, 0x01, 0x22, 0x2f, 0x0a, 0x0e, 0x52, 0x65,
+	0x63, 0x65, 0x69, 0x76, 0x65, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x1d, 0x0a, 0x03,
+	0x6d, 0x73, 0x67, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0b, 0x2e, 0x41, 0x70, 0x70, 0x4d,
+	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x52, 0x03, 0x6d, 0x73, 0x67, 0x2a, 0x4c, 0x0a, 0x0c, 0x45,
+	0x43, 0x48, 0x4f, 0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x49, 0x44, 0x12, 0x0b, 0x0a, 0x07, 0x5f,
+	0x55, 0x4e, 0x5f, 0x55, 0x53, 0x45, 0x10, 0x00, 0x12, 0x08, 0x0a, 0x04, 0x50, 0x49, 0x4e, 0x47,
+	0x10, 0x01, 0x12, 0x10, 0x0a, 0x0c, 0x53, 0x45, 0x4e, 0x44, 0x5f, 0x4d, 0x45, 0x53, 0x53, 0x41,
+	0x47, 0x45, 0x10, 0x02, 0x12, 0x13, 0x0a, 0x0f, 0x52, 0x45, 0x43, 0x45, 0x49, 0x56, 0x45, 0x5f,
+	0x4d, 0x45, 0x53, 0x53, 0x41, 0x47, 0x45, 0x10, 0x03, 0x42, 0x06, 0x5a, 0x04, 0x61, 0x70, 0x69,
+	0x2f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -389,20 +529,23 @@ func file_echo_api_proto_rawDescGZIP() []byte {
 }
 
 var file_echo_api_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_echo_api_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_echo_api_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_echo_api_proto_goTypes = []interface{}{
 	(ECHO_TYPE_ID)(0),           // 0: ECHO_TYPE_ID
 	(SendMessage_ERROR)(0),      // 1: SendMessage.ERROR
-	(*AppMessage)(nil),          // 2: AppMessage
-	(*SendMessage)(nil),         // 3: SendMessage
-	(*ReceiveMessage)(nil),      // 4: ReceiveMessage
-	(*SendMessage_Request)(nil), // 5: SendMessage.Request
-	(*SendMessage_Reply)(nil),   // 6: SendMessage.Reply
+	(*EchoPing)(nil),            // 2: EchoPing
+	(*AppMessage)(nil),          // 3: AppMessage
+	(*SendMessage)(nil),         // 4: SendMessage
+	(*ReceiveMessage)(nil),      // 5: ReceiveMessage
+	(*EchoPing_Request)(nil),    // 6: EchoPing.Request
+	(*EchoPing_Reply)(nil),      // 7: EchoPing.Reply
+	(*SendMessage_Request)(nil), // 8: SendMessage.Request
+	(*SendMessage_Reply)(nil),   // 9: SendMessage.Reply
 }
 var file_echo_api_proto_depIdxs = []int32{
-	2, // 0: ReceiveMessage.msg:type_name -> AppMessage
-	2, // 1: SendMessage.Request.msg:type_name -> AppMessage
-	2, // 2: SendMessage.Reply.msg:type_name -> AppMessage
+	3, // 0: ReceiveMessage.msg:type_name -> AppMessage
+	3, // 1: SendMessage.Request.msg:type_name -> AppMessage
+	3, // 2: SendMessage.Reply.msg:type_name -> AppMessage
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
@@ -417,7 +560,7 @@ func file_echo_api_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_echo_api_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AppMessage); i {
+			switch v := v.(*EchoPing); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -429,7 +572,7 @@ func file_echo_api_proto_init() {
 			}
 		}
 		file_echo_api_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SendMessage); i {
+			switch v := v.(*AppMessage); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -441,7 +584,7 @@ func file_echo_api_proto_init() {
 			}
 		}
 		file_echo_api_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ReceiveMessage); i {
+			switch v := v.(*SendMessage); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -453,7 +596,7 @@ func file_echo_api_proto_init() {
 			}
 		}
 		file_echo_api_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SendMessage_Request); i {
+			switch v := v.(*ReceiveMessage); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -465,6 +608,42 @@ func file_echo_api_proto_init() {
 			}
 		}
 		file_echo_api_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*EchoPing_Request); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_echo_api_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*EchoPing_Reply); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_echo_api_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SendMessage_Request); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_echo_api_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SendMessage_Reply); i {
 			case 0:
 				return &v.state
@@ -483,7 +662,7 @@ func file_echo_api_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_echo_api_proto_rawDesc,
 			NumEnums:      2,
-			NumMessages:   5,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
