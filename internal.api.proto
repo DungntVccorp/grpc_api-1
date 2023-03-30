@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "api.proto";
+
+option go_package = "api/";
+
+enum TYPE_INTERNAL_ID
+{
+    _NONE  = 0;
+    PUSH_RECEIVE = 1;
+}
+message PushReceive
+{
+    enum PUSH_TYPE 
+    {
+        TO_ALL = 0;
+        TO_USER = 1;
+        TO_SESSION = 2;
+        TO_CONNECTION = 3;
+    }
+
+    PUSH_TYPE pushType = 1;
+
+    
+}
