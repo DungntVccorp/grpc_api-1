@@ -84,8 +84,9 @@ message Reply {
 }
 message Receive{
   uint32 type = 1;
-  uint64 server_time = 2;
-  google.protobuf.Any receive = 3;
+  Group group = 2;
+  uint64 server_time = 3;
+  google.protobuf.Any receive = 4;
 }
 
 
