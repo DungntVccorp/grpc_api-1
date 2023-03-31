@@ -17,9 +17,14 @@ message PushReceive
         TO_SESSION = 2; // receiver là danh sách session nhận push 
         TO_CONNECTION = 3; // receiver là danh sách connection id 
     }
-
-    PUSH_TYPE pushType = 1;
-    repeated string receiver = 2;
-    uint32 receive_type = 3;
-    google.protobuf.Any receive = 4; 
+    message Request 
+    {
+        PUSH_TYPE pushType = 1;
+        repeated string receiver = 2;
+        uint32 receive_type = 3;
+        google.protobuf.Any receive = 4; 
+    }
+    message Reply
+    {
+    }
 }
