@@ -59,6 +59,7 @@ message Session
 {
     string user_id = 1;
     string session_id = 2;
+    string connection_id = 6;
     uint64 expire = 3;
     uint64 last_active = 4;
     uint32 role = 5;
