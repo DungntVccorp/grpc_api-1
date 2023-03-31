@@ -21,8 +21,10 @@ message PushReceive
     {
         PUSH_TYPE pushType = 1;
         repeated string receiver = 2;
-        uint32 receive_type = 3;
-        google.protobuf.Any receive = 4; 
+        PUSH_TYPE ignore_Type = 3;
+        repeated string ignore_receiver = 4;
+        uint32 receive_type = 5;
+        google.protobuf.Any receive = 6; 
     }
     message Reply
     {
