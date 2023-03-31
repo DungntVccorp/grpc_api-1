@@ -1,5 +1,5 @@
 syntax = "proto3";
-import "google/protobuf/any.proto";
+
 
 option go_package = "api/";
 
@@ -24,7 +24,7 @@ message PushReceive
         PUSH_TYPE ignore_Type = 3;
         string ignore_receiver = 4;
         uint32 receive_type = 5;
-        google.protobuf.Any receive = 6; 
+        bytes receive = 6; 
     }
     message Reply
     {
