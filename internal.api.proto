@@ -1,25 +1,25 @@
 syntax = "proto3";
-
-import "api.proto";
+import "google/protobuf/any.proto";
 
 option go_package = "api/";
 
 enum TYPE_INTERNAL_ID
 {
-    _NONE  = 0;
+    INTERNAL_UNUSE_NONE  = 0;
     PUSH_RECEIVE = 1;
 }
 message PushReceive
 {
     enum PUSH_TYPE 
     {
-        TO_ALL = 0;
-        TO_USER = 1;
-        TO_SESSION = 2;
-        TO_CONNECTION = 3;
+        TO_ALL = 0; // receiver not set 
+        TO_USER = 1; // receiver là danh sánh user id
+        TO_SESSION = 2; // receiver là danh sách session nhận push 
+        TO_CONNECTION = 3; // receiver là danh sách connection id 
     }
 
     PUSH_TYPE pushType = 1;
-
-    
+    repeated string receiver = 2;
+    uint32 receive_type = 3;
+    google.protobuf.Any receive = 4; 
 }

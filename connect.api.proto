@@ -12,6 +12,7 @@ enum TYPE_ID
     RECEIVE_HELLO = 1;
     REQUEST_HELLO = 2;
     REQUEST_KEEPALIVE  = 3;
+
 }
 
 message HelloReceive { // được server gửi về client ngay sau khi client mở kết nối ( WS hoặc TCP )

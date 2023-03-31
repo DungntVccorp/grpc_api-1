@@ -46,7 +46,8 @@ enum Group
     AUTHEN = 2; // ==> authen.api.proto
     ECHO = 3; // ==> echo.api.proto
     MARKET = 4; // ==> market.api.proto
-    PNS = 5; // apns.api.proto // send push notification ios,android,window,web 
+    PNS = 5; // apns.api.proto // send push notification ios,android,window,web
+    INTERNAL = 99;
 }
 
 enum Role {
