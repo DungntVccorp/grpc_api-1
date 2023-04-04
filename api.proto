@@ -80,7 +80,9 @@ message Reply {
   uint32 status = 1;
   string msg = 2;
   google.protobuf.Any reply = 3;
-  bytes bin_reply = 4; // trường này luôn luôn null khi được trả về client 
+  bytes bin_reply = 4; // trường này luôn luôn null khi được trả về client
+  uint32 type = 5;
+  Group group = 6;
 
 }
 message Receive{
