@@ -15,8 +15,13 @@ enum MARKET_TYPE_ID
     REQUEST_CREATE_KEY = 7;
     REQUEST_UPDATE_KEY = 8;
     REQUEST_DELETE_KEY = 9;
-
 }
+
+enum GROUP_MARKET_ID
+{
+    ID = 4;
+}
+
 message api
 {
     string name = 1; // Human readable name of the API. It is used for identification purposes but does not act as an index.

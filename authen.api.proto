@@ -8,7 +8,11 @@ enum AUTHEN_TYPE_ID
     AUTHEN_NONE  = 0;
     REQUEST_LOGIN = 1;
     REQUEST_REGISTER = 2;
-    REQUEST_CHECK_TOKEN  = 3;
+    REQUEST_AUTHEN  = 3;
+}
+enum GROUP_AUTHEN_ID
+{
+    ID = 2;
 }
 
 
