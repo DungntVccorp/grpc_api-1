@@ -17,10 +17,7 @@ enum MARKET_TYPE_ID
     REQUEST_DELETE_KEY = 9;
 }
 
-enum GROUP_MARKET_ID
-{
-    ID = 4;
-}
+
 
 message api
 {

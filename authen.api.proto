@@ -10,11 +10,6 @@ enum AUTHEN_TYPE_ID
     REQUEST_REGISTER = 2;
     REQUEST_AUTHEN  = 3;
 }
-enum GROUP_AUTHEN_ID
-{
-    ID = 2;
-}
-
 
 /// JSON REQUEST {"type":1, "group":"AUTHEN", "request":{"@type":"type.googleapis.com/Login.Request", "userName":"admin", "password":"admin"}}
 /// JSON REPLY {"reply":{"@type":"type.googleapis.com/Login.Reply", "session":{"userId":"1", "sessionId":"c7ba3cc8-a1fe-11ed-9f49-0242ac130002", "expire":"1677827116", "lastActive":"1675235116", "role":2}}}

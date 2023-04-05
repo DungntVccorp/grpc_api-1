@@ -9,10 +9,7 @@ enum ECHO_TYPE_ID
     SEND_MESSAGE = 2;
     RECEIVE_MESSAGE = 3;
 }
-enum GROUP_ECHO_ID
-{
-    ID = 3;
-}
+
 message EchoPing
 {
     message Request{}
@@ -25,7 +22,8 @@ message EchoPing
 
 message AppMessage {
     string msg = 1;
-    string user_send = 2;
+    string user_name = 2;
+    string user_id = 3;
 }
 
 message SendMessage

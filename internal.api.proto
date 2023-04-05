@@ -8,10 +8,7 @@ enum TYPE_INTERNAL_ID
     INTERNAL_UNUSE_NONE  = 0;
     PUSH_RECEIVE = 1;
 }
-enum GROUP_INTERNAL_ID
-{
-    ID = 99;
-}
+
 message PushReceive
 {
     enum PUSH_TYPE 

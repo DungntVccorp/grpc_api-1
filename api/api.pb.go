@@ -163,8 +163,8 @@ type EncodeType int32
 const (
 	EncodeType_NONE EncodeType = 0  // không mã hóa playload
 	EncodeType_XOR  EncodeType = 32 // mã hóa với xor key ( sv sử dụng xor key của client và client sử dụng xor key của server để decode payload )
-	EncodeType_RSA  EncodeType = 64 // mã hóa với rsa public key của nhau để encode data
-	EncodeType_AES  EncodeType = 96 // with key = 32 byte (AES-256-CBC)
+	EncodeType_RSA  EncodeType = 64 // mã hóa với rsa public key của nhau để encode data (RSA-1024-PKCS1_PADING)
+	EncodeType_AES  EncodeType = 96 // with key = 32 byte (AES-CBC-256-PKCS7_PADING)
 )
 
 // Enum value maps for EncodeType.
