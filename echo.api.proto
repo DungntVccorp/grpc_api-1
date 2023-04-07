@@ -10,6 +10,12 @@ enum ECHO_TYPE_ID
     RECEIVE_MESSAGE = 3;
 }
 
+enum ECHO_GROUP 
+{
+    ECHO_GROUP_UN_USE = 0;
+    ECHO_GROUP_ID = 3;
+}
+
 message EchoPing
 {
     message Request{}

@@ -66,6 +66,52 @@ func (TYPE_INTERNAL_ID) EnumDescriptor() ([]byte, []int) {
 	return file_internal_api_proto_rawDescGZIP(), []int{0}
 }
 
+type INTERNAL_GROUP int32
+
+const (
+	INTERNAL_GROUP_INTERNAL_GROUP_UN_USE INTERNAL_GROUP = 0
+	INTERNAL_GROUP_INTERNAL_GROUP_ID     INTERNAL_GROUP = 99
+)
+
+// Enum value maps for INTERNAL_GROUP.
+var (
+	INTERNAL_GROUP_name = map[int32]string{
+		0:  "INTERNAL_GROUP_UN_USE",
+		99: "INTERNAL_GROUP_ID",
+	}
+	INTERNAL_GROUP_value = map[string]int32{
+		"INTERNAL_GROUP_UN_USE": 0,
+		"INTERNAL_GROUP_ID":     99,
+	}
+)
+
+func (x INTERNAL_GROUP) Enum() *INTERNAL_GROUP {
+	p := new(INTERNAL_GROUP)
+	*p = x
+	return p
+}
+
+func (x INTERNAL_GROUP) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (INTERNAL_GROUP) Descriptor() protoreflect.EnumDescriptor {
+	return file_internal_api_proto_enumTypes[1].Descriptor()
+}
+
+func (INTERNAL_GROUP) Type() protoreflect.EnumType {
+	return &file_internal_api_proto_enumTypes[1]
+}
+
+func (x INTERNAL_GROUP) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use INTERNAL_GROUP.Descriptor instead.
+func (INTERNAL_GROUP) EnumDescriptor() ([]byte, []int) {
+	return file_internal_api_proto_rawDescGZIP(), []int{1}
+}
+
 type PushReceive_PUSH_TYPE int32
 
 const (
@@ -102,11 +148,11 @@ func (x PushReceive_PUSH_TYPE) String() string {
 }
 
 func (PushReceive_PUSH_TYPE) Descriptor() protoreflect.EnumDescriptor {
-	return file_internal_api_proto_enumTypes[1].Descriptor()
+	return file_internal_api_proto_enumTypes[2].Descriptor()
 }
 
 func (PushReceive_PUSH_TYPE) Type() protoreflect.EnumType {
-	return &file_internal_api_proto_enumTypes[1]
+	return &file_internal_api_proto_enumTypes[2]
 }
 
 func (x PushReceive_PUSH_TYPE) Number() protoreflect.EnumNumber {
@@ -340,8 +386,12 @@ var file_internal_api_proto_rawDesc = []byte{
 	0x5f, 0x49, 0x4e, 0x54, 0x45, 0x52, 0x4e, 0x41, 0x4c, 0x5f, 0x49, 0x44, 0x12, 0x17, 0x0a, 0x13,
 	0x49, 0x4e, 0x54, 0x45, 0x52, 0x4e, 0x41, 0x4c, 0x5f, 0x55, 0x4e, 0x55, 0x53, 0x45, 0x5f, 0x4e,
 	0x4f, 0x4e, 0x45, 0x10, 0x00, 0x12, 0x10, 0x0a, 0x0c, 0x50, 0x55, 0x53, 0x48, 0x5f, 0x52, 0x45,
-	0x43, 0x45, 0x49, 0x56, 0x45, 0x10, 0x01, 0x42, 0x06, 0x5a, 0x04, 0x61, 0x70, 0x69, 0x2f, 0x62,
-	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x43, 0x45, 0x49, 0x56, 0x45, 0x10, 0x01, 0x2a, 0x42, 0x0a, 0x0e, 0x49, 0x4e, 0x54, 0x45, 0x52,
+	0x4e, 0x41, 0x4c, 0x5f, 0x47, 0x52, 0x4f, 0x55, 0x50, 0x12, 0x19, 0x0a, 0x15, 0x49, 0x4e, 0x54,
+	0x45, 0x52, 0x4e, 0x41, 0x4c, 0x5f, 0x47, 0x52, 0x4f, 0x55, 0x50, 0x5f, 0x55, 0x4e, 0x5f, 0x55,
+	0x53, 0x45, 0x10, 0x00, 0x12, 0x15, 0x0a, 0x11, 0x49, 0x4e, 0x54, 0x45, 0x52, 0x4e, 0x41, 0x4c,
+	0x5f, 0x47, 0x52, 0x4f, 0x55, 0x50, 0x5f, 0x49, 0x44, 0x10, 0x63, 0x42, 0x06, 0x5a, 0x04, 0x61,
+	0x70, 0x69, 0x2f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -356,18 +406,19 @@ func file_internal_api_proto_rawDescGZIP() []byte {
 	return file_internal_api_proto_rawDescData
 }
 
-var file_internal_api_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_internal_api_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
 var file_internal_api_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_internal_api_proto_goTypes = []interface{}{
 	(TYPE_INTERNAL_ID)(0),       // 0: TYPE_INTERNAL_ID
-	(PushReceive_PUSH_TYPE)(0),  // 1: PushReceive.PUSH_TYPE
-	(*PushReceive)(nil),         // 2: PushReceive
-	(*PushReceive_Request)(nil), // 3: PushReceive.Request
-	(*PushReceive_Reply)(nil),   // 4: PushReceive.Reply
+	(INTERNAL_GROUP)(0),         // 1: INTERNAL_GROUP
+	(PushReceive_PUSH_TYPE)(0),  // 2: PushReceive.PUSH_TYPE
+	(*PushReceive)(nil),         // 3: PushReceive
+	(*PushReceive_Request)(nil), // 4: PushReceive.Request
+	(*PushReceive_Reply)(nil),   // 5: PushReceive.Reply
 }
 var file_internal_api_proto_depIdxs = []int32{
-	1, // 0: PushReceive.Request.pushType:type_name -> PushReceive.PUSH_TYPE
-	1, // 1: PushReceive.Request.ignore_Type:type_name -> PushReceive.PUSH_TYPE
+	2, // 0: PushReceive.Request.pushType:type_name -> PushReceive.PUSH_TYPE
+	2, // 1: PushReceive.Request.ignore_Type:type_name -> PushReceive.PUSH_TYPE
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -423,7 +474,7 @@ func file_internal_api_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_internal_api_proto_rawDesc,
-			NumEnums:      2,
+			NumEnums:      3,
 			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
