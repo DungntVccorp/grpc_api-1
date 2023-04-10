@@ -72,6 +72,52 @@ func (TYPE_ID) EnumDescriptor() ([]byte, []int) {
 	return file_connect_api_proto_rawDescGZIP(), []int{0}
 }
 
+type CONNECTION_GROUP int32
+
+const (
+	CONNECTION_GROUP_CONNECTION_GROUP_UN_USE CONNECTION_GROUP = 0
+	CONNECTION_GROUP_CONNECTION_GROUP_ID     CONNECTION_GROUP = 1
+)
+
+// Enum value maps for CONNECTION_GROUP.
+var (
+	CONNECTION_GROUP_name = map[int32]string{
+		0: "CONNECTION_GROUP_UN_USE",
+		1: "CONNECTION_GROUP_ID",
+	}
+	CONNECTION_GROUP_value = map[string]int32{
+		"CONNECTION_GROUP_UN_USE": 0,
+		"CONNECTION_GROUP_ID":     1,
+	}
+)
+
+func (x CONNECTION_GROUP) Enum() *CONNECTION_GROUP {
+	p := new(CONNECTION_GROUP)
+	*p = x
+	return p
+}
+
+func (x CONNECTION_GROUP) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (CONNECTION_GROUP) Descriptor() protoreflect.EnumDescriptor {
+	return file_connect_api_proto_enumTypes[1].Descriptor()
+}
+
+func (CONNECTION_GROUP) Type() protoreflect.EnumType {
+	return &file_connect_api_proto_enumTypes[1]
+}
+
+func (x CONNECTION_GROUP) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use CONNECTION_GROUP.Descriptor instead.
+func (CONNECTION_GROUP) EnumDescriptor() ([]byte, []int) {
+	return file_connect_api_proto_rawDescGZIP(), []int{1}
+}
+
 type Hello_ERROR int32
 
 const (
@@ -105,11 +151,11 @@ func (x Hello_ERROR) String() string {
 }
 
 func (Hello_ERROR) Descriptor() protoreflect.EnumDescriptor {
-	return file_connect_api_proto_enumTypes[1].Descriptor()
+	return file_connect_api_proto_enumTypes[2].Descriptor()
 }
 
 func (Hello_ERROR) Type() protoreflect.EnumType {
-	return &file_connect_api_proto_enumTypes[1]
+	return &file_connect_api_proto_enumTypes[2]
 }
 
 func (x Hello_ERROR) Number() protoreflect.EnumNumber {
@@ -151,11 +197,11 @@ func (x KeepAlive_ERROR) String() string {
 }
 
 func (KeepAlive_ERROR) Descriptor() protoreflect.EnumDescriptor {
-	return file_connect_api_proto_enumTypes[2].Descriptor()
+	return file_connect_api_proto_enumTypes[3].Descriptor()
 }
 
 func (KeepAlive_ERROR) Type() protoreflect.EnumType {
-	return &file_connect_api_proto_enumTypes[2]
+	return &file_connect_api_proto_enumTypes[3]
 }
 
 func (x KeepAlive_ERROR) Number() protoreflect.EnumNumber {
@@ -572,8 +618,12 @@ var file_connect_api_proto_rawDesc = []byte{
 	0x49, 0x56, 0x45, 0x5f, 0x48, 0x45, 0x4c, 0x4c, 0x4f, 0x10, 0x01, 0x12, 0x11, 0x0a, 0x0d, 0x52,
 	0x45, 0x51, 0x55, 0x45, 0x53, 0x54, 0x5f, 0x48, 0x45, 0x4c, 0x4c, 0x4f, 0x10, 0x02, 0x12, 0x15,
 	0x0a, 0x11, 0x52, 0x45, 0x51, 0x55, 0x45, 0x53, 0x54, 0x5f, 0x4b, 0x45, 0x45, 0x50, 0x41, 0x4c,
-	0x49, 0x56, 0x45, 0x10, 0x03, 0x42, 0x06, 0x5a, 0x04, 0x61, 0x70, 0x69, 0x2f, 0x62, 0x06, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x49, 0x56, 0x45, 0x10, 0x03, 0x2a, 0x48, 0x0a, 0x10, 0x43, 0x4f, 0x4e, 0x4e, 0x45, 0x43, 0x54,
+	0x49, 0x4f, 0x4e, 0x5f, 0x47, 0x52, 0x4f, 0x55, 0x50, 0x12, 0x1b, 0x0a, 0x17, 0x43, 0x4f, 0x4e,
+	0x4e, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x47, 0x52, 0x4f, 0x55, 0x50, 0x5f, 0x55, 0x4e,
+	0x5f, 0x55, 0x53, 0x45, 0x10, 0x00, 0x12, 0x17, 0x0a, 0x13, 0x43, 0x4f, 0x4e, 0x4e, 0x45, 0x43,
+	0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x47, 0x52, 0x4f, 0x55, 0x50, 0x5f, 0x49, 0x44, 0x10, 0x01, 0x42,
+	0x06, 0x5a, 0x04, 0x61, 0x70, 0x69, 0x2f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -588,27 +638,28 @@ func file_connect_api_proto_rawDescGZIP() []byte {
 	return file_connect_api_proto_rawDescData
 }
 
-var file_connect_api_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
+var file_connect_api_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
 var file_connect_api_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_connect_api_proto_goTypes = []interface{}{
 	(TYPE_ID)(0),              // 0: TYPE_ID
-	(Hello_ERROR)(0),          // 1: Hello.ERROR
-	(KeepAlive_ERROR)(0),      // 2: KeepAlive.ERROR
-	(*HelloReceive)(nil),      // 3: HelloReceive
-	(*Hello)(nil),             // 4: Hello
-	(*KeepAlive)(nil),         // 5: KeepAlive
-	(*Hello_Request)(nil),     // 6: Hello.Request
-	(*Hello_Reply)(nil),       // 7: Hello.Reply
-	(*KeepAlive_Request)(nil), // 8: KeepAlive.Request
-	(*KeepAlive_Reply)(nil),   // 9: KeepAlive.Reply
-	(EncodeType)(0),           // 10: EncodeType
-	(Platform)(0),             // 11: Platform
+	(CONNECTION_GROUP)(0),     // 1: CONNECTION_GROUP
+	(Hello_ERROR)(0),          // 2: Hello.ERROR
+	(KeepAlive_ERROR)(0),      // 3: KeepAlive.ERROR
+	(*HelloReceive)(nil),      // 4: HelloReceive
+	(*Hello)(nil),             // 5: Hello
+	(*KeepAlive)(nil),         // 6: KeepAlive
+	(*Hello_Request)(nil),     // 7: Hello.Request
+	(*Hello_Reply)(nil),       // 8: Hello.Reply
+	(*KeepAlive_Request)(nil), // 9: KeepAlive.Request
+	(*KeepAlive_Reply)(nil),   // 10: KeepAlive.Reply
+	(EncodeType)(0),           // 11: EncodeType
+	(Platform)(0),             // 12: Platform
 }
 var file_connect_api_proto_depIdxs = []int32{
-	10, // 0: HelloReceive.server_encodeType:type_name -> EncodeType
-	10, // 1: Hello.Request.encodeType:type_name -> EncodeType
-	11, // 2: Hello.Request.platform:type_name -> Platform
-	10, // 3: Hello.Reply.server_encodeType:type_name -> EncodeType
+	11, // 0: HelloReceive.server_encodeType:type_name -> EncodeType
+	11, // 1: Hello.Request.encodeType:type_name -> EncodeType
+	12, // 2: Hello.Request.platform:type_name -> Platform
+	11, // 3: Hello.Reply.server_encodeType:type_name -> EncodeType
 	4,  // [4:4] is the sub-list for method output_type
 	4,  // [4:4] is the sub-list for method input_type
 	4,  // [4:4] is the sub-list for extension type_name
@@ -713,7 +764,7 @@ func file_connect_api_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_connect_api_proto_rawDesc,
-			NumEnums:      3,
+			NumEnums:      4,
 			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   0,
