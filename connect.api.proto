@@ -14,7 +14,11 @@ enum TYPE_ID
     REQUEST_KEEPALIVE  = 3;
 
 }
-
+enum CONNECTION_GROUP
+{
+    CONNECTION_GROUP_UN_USE = 0;
+    CONNECTION_GROUP_ID = 1;
+}
 
 message HelloReceive { // được server gửi về client ngay sau khi client mở kết nối ( WS hoặc TCP )
     uint64 server_time = 1;

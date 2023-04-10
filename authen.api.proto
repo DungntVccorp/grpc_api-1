@@ -1,5 +1,4 @@
 syntax = "proto3";
-import "api.proto";
 option go_package = "api/";
 
 
@@ -10,7 +9,11 @@ enum AUTHEN_TYPE_ID
     REQUEST_REGISTER = 2;
     REQUEST_AUTHEN  = 3;
 }
-
+enum AUTHEN_GROUP
+{
+    AUTHEN_GROUP_UN_USE = 0;
+    AUTHEN_GROUP_ID = 2;
+}
 /// JSON REQUEST {"type":1, "group":"AUTHEN", "request":{"@type":"type.googleapis.com/Login.Request", "userName":"admin", "password":"admin"}}
 /// JSON REPLY {"reply":{"@type":"type.googleapis.com/Login.Reply", "session":{"userId":"1", "sessionId":"c7ba3cc8-a1fe-11ed-9f49-0242ac130002", "expire":"1677827116", "lastActive":"1675235116", "role":2}}}
 message Login // sử dụng để đăng nhập vào hệ thống ( với socket thì cần thiết lập kết nối socket trước ) 
@@ -20,7 +23,7 @@ message Login // sử dụng để đăng nhập vào hệ thống ( với socke
         string userName = 1;
         string password = 2;
         string device_token = 3;
-        Platform platform = 4;
+        uint32 platform = 4;
     }
     message Reply
     {
@@ -49,7 +52,7 @@ message Register // sử dụng HTTP hoặc GRPC
         string email = 3;
         string tel = 4;
         string device_token = 5;
-        Platform platform = 6;
+        uint32 platform = 6;
     }
     message Reply
     {
