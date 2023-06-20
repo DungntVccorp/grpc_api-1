@@ -18,6 +18,7 @@ enum ResultType
   ENCRYPT_ERROR = 1008; /// lỗi khi chưa thiết lập kết nối authen 
   INTERNAL_SERVER_ERROR = 1009;
   STRANGE_REQUEST = 1010;
+
 }
 enum Platform
 {
@@ -31,15 +32,15 @@ enum Platform
 }
 enum EncodeType
 {
-    NONE = 0;  // không mã hóa playload 
+    NONE = 0;  // không mã hóa playload
     XOR  = 32; // mã hóa với xor key ( sv sử dụng xor key của client và client sử dụng xor key của server để decode payload )
-    RSA  = 64; // mã hóa với rsa public key của nhau để encode data (RSA-1024-PKCS1_PADING) 
-    AES  = 96; // with key = 32 byte (AES-CBC-256-PKCS7_PADING) 
+    RSA  = 64; // mã hóa với rsa public key của nhau để encode data (RSA-1024-PKCS1_PADING)
+    AES  = 96; // with key = 32 byte (AES-CBC-256-PKCS7_PADING)
 }
 
 enum Role {
-    ADMIN = 0; 
-    PROVIDER = 1; 
+    ADMIN = 0;
+    PROVIDER = 1;
     USER = 2;
 }
 message Session
@@ -54,32 +55,32 @@ message Session
 
 
 message Request {
-  string type = 1;
-  string group = 2;
-  string api_version = 3;
-  Session session = 4; // client không set khi sử dụng http (http sử dụng V-Authorization ở Header mỗi request), đối với grpc và udp cần gửi thêm session_id trong session để sv kiểm tra tính xác thực user
-  uint32 protocol = 5; // client không set
-  uint32 payloadType = 6; // client không set
-  bytes bin_request = 7; // client không set
-  google.protobuf.Any request = 8;
+  uint32 type = 1;
+  uint32 group = 2;
+  Session session = 3; // client không set khi sử dụng http (http sử dụng V-Authorization ở Header mỗi request), đối với grpc và udp cần gửi thêm session_id trong session để sv kiểm tra tính xác thực user
+  uint32 protocol = 4; // client không set
+  uint32 payloadType = 5; // client không set
+  bytes bin_request = 6; // client không set
+  google.protobuf.Any request = 7;
 
 }
 message Reply {
-  message Result{
-    uint32 code = 1;
+  message Result {
+    string int = 1;
     string message = 2;
   }
   uint32 status = 1;
   string msg = 2;
   google.protobuf.Any reply = 3;
   bytes bin_reply = 4; // trường này luôn luôn null khi được trả về client
-  string type = 5;
-  string group = 6;
+  uint32 type = 5;
+  uint32 group = 6;
   Result result = 7;
+
 }
 message Receive{
-  string type = 1;
-  string group = 2;
+  uint32 type = 1;
+  uint32 group = 2;
   uint64 server_time = 3;
   google.protobuf.Any receive = 4;
 }
