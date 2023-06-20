@@ -54,7 +54,7 @@ message Session
 
 
 message Request {
-  uint32 type = 1;
+  string type = 1;
   string group = 2;
   Session session = 3; // client không set khi sử dụng http (http sử dụng V-Authorization ở Header mỗi request), đối với grpc và udp cần gửi thêm session_id trong session để sv kiểm tra tính xác thực user 
   uint32 protocol = 4; // client không set 
@@ -72,12 +72,12 @@ message Reply {
   string msg = 2;
   google.protobuf.Any reply = 3;
   bytes bin_reply = 4; // trường này luôn luôn null khi được trả về client
-  uint32 type = 5;
+  string type = 5;
   string group = 6;
   Result result = 7;
 }
 message Receive{
-  uint32 type = 1;
+  string type = 1;
   string group = 2;
   uint64 server_time = 3;
   google.protobuf.Any receive = 4;
