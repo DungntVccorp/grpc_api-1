@@ -56,11 +56,12 @@ message Session
 message Request {
   string type = 1;
   string group = 2;
-  Session session = 3; // client không set khi sử dụng http (http sử dụng V-Authorization ở Header mỗi request), đối với grpc và udp cần gửi thêm session_id trong session để sv kiểm tra tính xác thực user 
-  uint32 protocol = 4; // client không set 
-  uint32 payloadType = 5; // client không set 
-  bytes bin_request = 6; // client không set 
-  google.protobuf.Any request = 7;
+  string api_version = 3;
+  Session session = 4; // client không set khi sử dụng http (http sử dụng V-Authorization ở Header mỗi request), đối với grpc và udp cần gửi thêm session_id trong session để sv kiểm tra tính xác thực user
+  uint32 protocol = 5; // client không set
+  uint32 payloadType = 6; // client không set
+  bytes bin_request = 7; // client không set
+  google.protobuf.Any request = 8;
 
 }
 message Reply {
