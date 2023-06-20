@@ -29,8 +29,8 @@ message PushReceive
         PUSH_TYPE ignore_Type = 3;
         string ignore_receiver = 4;
         uint32 receive_type = 5;
-        uint32 rc_type = 8;
-        uint32 rc_group = 9;
+        string rc_type = 8;
+        string rc_group = 9;
         bytes receive = 6;
         bytes receive_json = 7;
     }
