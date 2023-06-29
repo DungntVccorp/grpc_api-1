@@ -18,7 +18,7 @@ enum ResultType
   ENCRYPT_ERROR = 1008; /// lỗi khi chưa thiết lập kết nối authen 
   INTERNAL_SERVER_ERROR = 1009;
   STRANGE_REQUEST = 1010;
-  FORBIDDEN_403 = 1011;
+  PERMISSION_DENIED = 1011;
 }
 enum Platform
 {
