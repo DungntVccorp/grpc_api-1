@@ -47,6 +47,7 @@ message Session
     uint64 expire = 5;
     uint64 last_active = 6;
     repeated uint32 role = 7;
+    uint32 appid = 8;
 }
 
 
