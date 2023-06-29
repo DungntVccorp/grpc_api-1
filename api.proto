@@ -45,12 +45,13 @@ enum Role {
 }
 message Session
 {
-    string user_id = 1;
-    string session_id = 2;
-    string connection_id = 6;
-    uint64 expire = 3;
-    uint64 last_active = 4;
-    uint32 role = 5;
+    string token = 1;
+    uint32 user_id = 2;
+    uint32 session_id = 3;
+    string connection_id = 4;
+    uint64 expire = 5;
+    uint64 last_active = 6;
+    repeated uint32 role = 7;
 }
 
 
