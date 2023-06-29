@@ -38,11 +38,6 @@ enum EncodeType
     AES  = 96; // with key = 32 byte (AES-CBC-256-PKCS7_PADING)
 }
 
-enum Role {
-    ADMIN = 0;
-    PROVIDER = 1;
-    USER = 2;
-}
 message Session
 {
     string token = 1;

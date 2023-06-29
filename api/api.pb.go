@@ -210,55 +210,6 @@ func (EncodeType) EnumDescriptor() ([]byte, []int) {
 	return file_api_proto_rawDescGZIP(), []int{2}
 }
 
-type Role int32
-
-const (
-	Role_ADMIN    Role = 0
-	Role_PROVIDER Role = 1
-	Role_USER     Role = 2
-)
-
-// Enum value maps for Role.
-var (
-	Role_name = map[int32]string{
-		0: "ADMIN",
-		1: "PROVIDER",
-		2: "USER",
-	}
-	Role_value = map[string]int32{
-		"ADMIN":    0,
-		"PROVIDER": 1,
-		"USER":     2,
-	}
-)
-
-func (x Role) Enum() *Role {
-	p := new(Role)
-	*p = x
-	return p
-}
-
-func (x Role) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (Role) Descriptor() protoreflect.EnumDescriptor {
-	return file_api_proto_enumTypes[3].Descriptor()
-}
-
-func (Role) Type() protoreflect.EnumType {
-	return &file_api_proto_enumTypes[3]
-}
-
-func (x Role) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use Role.Descriptor instead.
-func (Role) EnumDescriptor() ([]byte, []int) {
-	return file_api_proto_rawDescGZIP(), []int{3}
-}
-
 type Session struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -888,10 +839,8 @@ var file_api_proto_rawDesc = []byte{
 	0x10, 0x63, 0x2a, 0x31, 0x0a, 0x0a, 0x45, 0x6e, 0x63, 0x6f, 0x64, 0x65, 0x54, 0x79, 0x70, 0x65,
 	0x12, 0x08, 0x0a, 0x04, 0x4e, 0x4f, 0x4e, 0x45, 0x10, 0x00, 0x12, 0x07, 0x0a, 0x03, 0x58, 0x4f,
 	0x52, 0x10, 0x20, 0x12, 0x07, 0x0a, 0x03, 0x52, 0x53, 0x41, 0x10, 0x40, 0x12, 0x07, 0x0a, 0x03,
-	0x41, 0x45, 0x53, 0x10, 0x60, 0x2a, 0x29, 0x0a, 0x04, 0x52, 0x6f, 0x6c, 0x65, 0x12, 0x09, 0x0a,
-	0x05, 0x41, 0x44, 0x4d, 0x49, 0x4e, 0x10, 0x00, 0x12, 0x0c, 0x0a, 0x08, 0x50, 0x52, 0x4f, 0x56,
-	0x49, 0x44, 0x45, 0x52, 0x10, 0x01, 0x12, 0x08, 0x0a, 0x04, 0x55, 0x53, 0x45, 0x52, 0x10, 0x02,
-	0x42, 0x06, 0x5a, 0x04, 0x61, 0x70, 0x69, 0x2f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x41, 0x45, 0x53, 0x10, 0x60, 0x42, 0x06, 0x5a, 0x04, 0x61, 0x70, 0x69, 0x2f, 0x62, 0x06, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -906,29 +855,28 @@ func file_api_proto_rawDescGZIP() []byte {
 	return file_api_proto_rawDescData
 }
 
-var file_api_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
+var file_api_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
 var file_api_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_api_proto_goTypes = []interface{}{
 	(ResultType)(0),                  // 0: ResultType
 	(Platform)(0),                    // 1: Platform
 	(EncodeType)(0),                  // 2: EncodeType
-	(Role)(0),                        // 3: Role
-	(*Session)(nil),                  // 4: Session
-	(*Request)(nil),                  // 5: Request
-	(*Reply)(nil),                    // 6: Reply
-	(*Receive)(nil),                  // 7: Receive
-	(*DiscoveryService)(nil),         // 8: DiscoveryService
-	(*Reply_Result)(nil),             // 9: Reply.Result
-	(*DiscoveryService_Request)(nil), // 10: DiscoveryService.Request
-	(*DiscoveryService_Reply)(nil),   // 11: DiscoveryService.Reply
-	(*anypb.Any)(nil),                // 12: google.protobuf.Any
+	(*Session)(nil),                  // 3: Session
+	(*Request)(nil),                  // 4: Request
+	(*Reply)(nil),                    // 5: Reply
+	(*Receive)(nil),                  // 6: Receive
+	(*DiscoveryService)(nil),         // 7: DiscoveryService
+	(*Reply_Result)(nil),             // 8: Reply.Result
+	(*DiscoveryService_Request)(nil), // 9: DiscoveryService.Request
+	(*DiscoveryService_Reply)(nil),   // 10: DiscoveryService.Reply
+	(*anypb.Any)(nil),                // 11: google.protobuf.Any
 }
 var file_api_proto_depIdxs = []int32{
-	4,  // 0: Request.session:type_name -> Session
-	12, // 1: Request.request:type_name -> google.protobuf.Any
-	12, // 2: Reply.reply:type_name -> google.protobuf.Any
-	9,  // 3: Reply.result:type_name -> Reply.Result
-	12, // 4: Receive.receive:type_name -> google.protobuf.Any
+	3,  // 0: Request.session:type_name -> Session
+	11, // 1: Request.request:type_name -> google.protobuf.Any
+	11, // 2: Reply.reply:type_name -> google.protobuf.Any
+	8,  // 3: Reply.result:type_name -> Reply.Result
+	11, // 4: Receive.receive:type_name -> google.protobuf.Any
 	5,  // [5:5] is the sub-list for method output_type
 	5,  // [5:5] is the sub-list for method input_type
 	5,  // [5:5] is the sub-list for extension type_name
@@ -1044,7 +992,7 @@ func file_api_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_api_proto_rawDesc,
-			NumEnums:      4,
+			NumEnums:      3,
 			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   0,
