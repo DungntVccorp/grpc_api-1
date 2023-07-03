@@ -80,8 +80,8 @@ message AuthConnection // xác thực kết nối socket // sau khi thực hiệ
 {
     message Request
     {
-         string sid = 1;
-         string uid = 2;
+         string token = 1;
+         repeated string role = 2;
     }
     message Reply
     {
@@ -90,12 +90,11 @@ message AuthConnection // xác thực kết nối socket // sau khi thực hiệ
     enum ERROR
     {
         NO_ERROR = 0;
-        SID_INVALID = 1;
-        UID_INVALID = 2;
-        ACCOUNT_NOT_ACTIVE = 3;
-        ACCOUNT_BANTED = 4;
-        SESSION_EXPIRE = 5;
-        ACCOUNT_NOT_FOUND = 6;
-
+        TOKEN_INVALID = 1;
+        ACCOUNT_NOT_ACTIVE = 2;
+        ACCOUNT_BANTED = 3;
+        TOKEN_EXPIRE = 4;
+        ACCOUNT_NOT_FOUND = 5;
+        ROLE_PERMISSION_DENIED = 6;
     }
 }
