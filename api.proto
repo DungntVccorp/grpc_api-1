@@ -52,9 +52,8 @@ message Session
     string connection_id = 4;
     uint64 expire = 5;
     uint64 last_active = 6;
-    repeated UserRole role = 7;
-    uint32 appid = 8; // chứa id của app kết nối tới
-    string appCode = 9; // chứa mã code của app kết nối tới
+    uint32 appid = 7; // chứa id của app kết nối tới
+    string appCode = 8; // chứa mã code của app kết nối tới
 }
 
 
