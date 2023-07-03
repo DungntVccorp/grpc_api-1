@@ -38,6 +38,12 @@ enum EncodeType
     AES  = 96; // with key = 32 byte (AES-CBC-256-PKCS7_PADING)
 }
 
+message UserRole
+{
+    string	Name  = 1;
+    string	Code  = 2;
+    uint32  RoleID = 3;
+}
 message Session
 {
     string token = 1;
@@ -46,8 +52,9 @@ message Session
     string connection_id = 4;
     uint64 expire = 5;
     uint64 last_active = 6;
-    repeated uint32 role = 7;
-    uint32 appid = 8;
+    repeated UserRole role = 7;
+    uint32 appid = 8; // chứa id của app kết nối tới
+    string appCode = 9; // chứa mã code của app kết nối tới
 }
 
 
