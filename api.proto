@@ -56,6 +56,12 @@ message Session
     string appCode = 8; // chứa mã code của app kết nối tới
 }
 
+message File
+{
+    string file_name = 1;
+    string file_path = 2;
+    string file_size = 3;
+}
 
 message Request {
   uint32 type = 1;
@@ -65,6 +71,7 @@ message Request {
   uint32 payloadType = 5; // client không set
   bytes bin_request = 6; // client không set
   google.protobuf.Any request = 7;
+  repeated File files = 8;
 
 }
 message Reply {
@@ -86,14 +93,4 @@ message Receive{
   uint32 group = 2;
   uint64 server_time = 3;
   google.protobuf.Any receive = 4;
-}
-
-
-message DiscoveryService{
-    message Request{}
-    message Reply
-    {
-        repeated uint32 types = 1;
-    }
-    uint32 ID = 1;
 }
