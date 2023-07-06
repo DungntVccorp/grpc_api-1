@@ -75,18 +75,14 @@ message Request {
 
 }
 message Reply {
-  message Result {
-    uint32 code = 1;
-    string message = 2;
-  }
   uint32 status = 1;
   string msg = 2;
-  google.protobuf.Any reply = 3;
+  google.protobuf.Any data = 3;
   bytes bin_reply = 4; // trường này luôn luôn null khi được trả về client
   uint32 type = 5;
   uint32 group = 6;
-  Result result = 7;
-
+  uint32 code = 7;
+  string message = 8;
 }
 message Receive{
   uint32 type = 1;
