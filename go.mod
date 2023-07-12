@@ -1,4 +1,4 @@
-module gitlab.vivas.vn/go/grpc_api
+module github.com/DungntVccorp/grpc_api
 
 go 1.19
 
