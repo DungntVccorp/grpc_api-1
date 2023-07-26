@@ -47,13 +47,14 @@ message UserRole
 message Session
 {
     string token = 1;
-    uint32 user_id = 2;
+    uint64 user_id = 2; // = account id
     uint32 session_id = 3;
     string connection_id = 4;
     uint64 expire = 5;
     uint64 last_active = 6;
     uint32 appid = 7; // chứa id của app kết nối tới
     string appCode = 8; // chứa mã code của app kết nối tới
+    string citizen_id = 9;
 }
 
 message File
