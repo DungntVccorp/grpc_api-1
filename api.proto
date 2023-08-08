@@ -55,6 +55,9 @@ message Session
     uint32 appid = 7; // chứa id của app kết nối tới
     string appCode = 8; // chứa mã code của app kết nối tới
     string citizen_id = 9;
+    uint64 profile_id = 10;
+    repeated string permissions = 11; // danh sach quyen
+
 }
 
 message File
