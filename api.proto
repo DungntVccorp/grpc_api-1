@@ -78,6 +78,8 @@ message Request {
   bytes bin_request = 6; // client không set
   google.protobuf.Any request = 7;
   repeated File files = 8;
+  bytes header_json  = 9;
+  string query = 10;
 
 }
 message Reply {
