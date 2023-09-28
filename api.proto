@@ -80,6 +80,8 @@ message Request {
   repeated File files = 8;
   bytes header_json  = 9;
   string query = 10;
+  string sType = 11;
+  string sGroup = 12;
 
 }
 message Reply {
