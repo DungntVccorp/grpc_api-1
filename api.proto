@@ -67,6 +67,7 @@ message File
     int32 file_size = 3;
     string file_ext = 4;
     string file_key = 5;
+    bytes content = 6;
 }
 
 message Request {
