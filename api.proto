@@ -58,6 +58,7 @@ message Session
     uint64 profile_id = 10;
     repeated string permissions = 11; // danh sach quyen
     google.protobuf.Any user_define = 12; // trường tự định nghĩa 
+    string unit_code = 13;
 
 }
 
